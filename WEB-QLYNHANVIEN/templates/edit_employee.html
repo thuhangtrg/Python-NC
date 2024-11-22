@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sửa Nhân Viên</title>
+    <link rel="stylesheet" href="/static/styles_edit.css">
+</head>
+<body>
+    <h1>Sửa Nhân Viên</h1>
+    
+    <!-- Form tìm kiếm nhân viên theo ID -->
+    <form method="POST">
+        <label for="id">ID Nhân Viên:</label>
+        <input type="text" name="id" placeholder="Nhập ID nhân viên"><br><br>
+    
+        <button type="submit" name="search">Tìm Nhân Viên</button>
+    </form>
+
+    {% if employee %}
+        <h2>Thông tin Nhân Viên</h2>
+        <!-- Form cập nhật nhân viên nếu tìm thấy thông tin -->
+        <form method="POST" action="/edit_employee">
+            <label for="id">ID Nhân Viên:</label>
+            <input type="text" name="id" value="{{ employee['id'] }}" readonly><br><br>
+
+            <label for="ten">Tên Nhân Viên:</label>
+            <input type="text" name="ten" value="{{ employee['ten'] }}"><br><br>
+
+            <label for="tuoi">Tuổi:</label>
+            <input type="text" name="tuoi" value="{{ employee['tuoi'] }}"><br><br>
+
+            <label for="gioi_tinh">Giới Tính:</label>
+            <input type="text" name="gioi_tinh" value="{{ employee['gioi_tinh'] }}"><br><br>
+
+            <label for="phong_ban">Phòng Ban:</label>
+            <input type="text" name="phong_ban" value="{{ employee['phong_ban'] }}"><br><br>
+
+            <button type="submit" name="update">Cập Nhật</button>
+        </form>
+    {% else %}
+
+        <!-- Hiển thị Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <script>
+                {% for category, message in messages %}
+                alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+        {% endwith %}
+
+    {% endif %}
+    <a href="/dashboard" class="btn-back">Quay lại Dashboard</a>
+</body>
+
+</html>

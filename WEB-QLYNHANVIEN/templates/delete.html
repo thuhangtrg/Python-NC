@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_delete.css') }}">
+    <title>Xóa Nhân Viên</title>
+</head>
+<body>
+    <h2>Xóa Nhân Viên</h2>
+    {% if employee %}
+        <p>Bạn có chắc chắn muốn xóa nhân viên "{{ employee[1] }}"?</p>
+        <form method="post">
+            <button type="submit">Có, tôi muốn xóa</button>
+        </form>
+        <a href="/dashboard">Hủy bỏ</a>
+    {% else %}
+        <p>Không tìm thấy nhân viên này.</p>
+    {% endif %}
+</body>
+</html>

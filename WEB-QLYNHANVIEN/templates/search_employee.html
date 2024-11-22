@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/styles_search.css">
+</head>
+
+<body>
+    <form method="POST">
+        <h2>Tìm kiếm nhân viên</h2>
+        <input type="text" name="keyword" placeholder="Nhập ID Nhân Viên">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    {% if results is not none %}
+        {% if results|length > 0 %}
+            <h3>Kết quả:</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Tuổi</th>
+                        <th>Giới Tính</th>
+                        <th>Phòng Ban</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for employee in results %}
+                    <tr>
+                        <td>{{ employee['id'] }}</td>
+                        <td>{{ employee['ten'] }}</td>
+                        <td>{{ employee['tuoi'] }}</td>
+                        <td>{{ employee['gioi_tinh'] }}</td>
+                        <td>{{ employee['phong_ban'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Không tìm thấy nhân viên nào.</p>
+        {% endif %}
+    {% endif %}
+
+    <a href="/dashboard" class="btn-back">Quay lại Dashboard</a>
+</body>
+</html>

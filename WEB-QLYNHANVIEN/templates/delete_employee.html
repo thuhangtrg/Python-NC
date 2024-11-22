@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa Nhân Viên</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_delete.css') }}">
+    <script>
+        function confirmDelete() {
+            return confirm("Bạn có chắc chắn muốn xóa nhân viên này?");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Xóa Nhân Viên</h1>
+        <form action="{{ url_for('delete_employee') }}" method="post" onsubmit="return confirmDelete()">
+            <label for="employee_id">Mã số nhân viên:</label>
+            <input type="text" id="employee_id" name="employee_id" required>
+            <button type="submit">Xóa</button>
+        </form>
+    </div>
+
+    <!-- Nút Quay lại -->
+    <a href="{{ url_for('dashboard') }}" class="btn-back">Quay lại Dashboard</a>
+</body>
+</html>

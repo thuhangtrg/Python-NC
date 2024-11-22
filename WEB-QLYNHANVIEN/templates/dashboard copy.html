@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <h2>Dashboard Quản Lý Nhân Viên</h2>
+        
+    <!-- Bảng hiển thị danh sách nhân viên -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ và Tên</th>
+                <th>Tuổi</th>
+                <th>Giới Tính</th>
+                <th>Phòng Ban</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee[0] }}</td>
+                <td>{{ employee[1] }}</td>
+                <td>{{ employee[2] }}</td>
+                <td>{{ employee[3] }}</td>
+                <td>{{ employee[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br>
+    <div style="text-align: center;">
+        <a href="/add" class="btn">Thêm nhân viên</a>
+        <a href="/search" class="btn">Tìm kiếm nhân viên</a>
+        <a href="/delete_employee" class="btn">Xóa nhân viên</a>
+        <a href="/edit_employee" class="btn">Sửa nhân viên</a> <!-- Thêm nút sửa nhân viên -->
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm Nhân Viên</title>
+    <link rel="stylesheet" href="/static/styles_add.css">
+</head>
+<body>
+<form method="POST">
+    <h2>Thêm Nhân Viên</h2>
+    <input type="text" name="id" placeholder="ID" required>
+
+    <input type="text" name="ten" placeholder="Họ tên" required>
+    <input type="number" name="tuoi" placeholder="Tuổi" required>
+    
+    <label>Giới tính:</label>
+    <select name="gioi_tinh" required>
+        <option value="Nam">Nam</option>
+        <option value="Nữ">Nữ</option>
+    </select>
+    
+    <input type="text" name="phong_ban" placeholder="Phòng ban" required>
+    
+    <button type="submit">Thêm Nhân Viên</button>
+</form>
+
+<a href="/dashboard" class="btn-back">Quay lại Dashboard</a>
+</body>
+</html>
